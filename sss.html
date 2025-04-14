@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RedEagle Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* يمنع تحديد النص */
+        }
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: red;
+            overflow: hidden;
+        }
+        .youtube-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 2.5rem; /* تكبير الخط */
+            line-height: 2.5rem;
+        }
+        .ip {
+            margin-top: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false"> <!-- يمنع كلك يمين -->
+<body>
+
+    <video width="1960" height="925" autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+      
+    
+    
+    <div class="content">
+        <p>( hi me S6o - 740 )</p>
+        <p>　</p>
+        <p>OOps! # My 740 - S6o Good Luck</p>
+        <p>　</p>
+
+        <p><a href="https://discord.gg/740" target="_blank" style="color:red;">https://discord.gg/740 </a></p>
+        <p>　</p>
+
+        <p class="ip">Your IP: <span id="ip">Loading...</span></p>
+        <p>　</p>
+
+        <p style="color:white;">S6o</p>
+    </div>
+
+    <script>
+        fetch("https://api.ipify.org?format=json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("ip").textContent = data.ip;
+            })
+            .catch(() => {
+                document.getElementById("ip").textContent = "Unavailable";
+            });
+    </script>
+</body>
+</html>
